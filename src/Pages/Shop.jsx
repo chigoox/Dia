@@ -6,7 +6,6 @@ function Shop() {
     const [PRODUCTDATA, SETPRODUCTDATA] = useState()
 
 
-    console.log(PRODUCTDATA)
 
 
     async function fetchProuductsFromStripe() {
@@ -53,8 +52,9 @@ function Shop() {
     return (
         <div className=' h-screen gap-40 md:grid-cols-2 grid-cols-1 lg:grid-cols-4 p-12 mt-12 grid grid-flow-row'>
             {PRODUCTDATA && PRODUCTDATA.map((item) => {
+                console.log(item)
                 return (
-                    <div className='flex items-center flex-col'>
+                    <div className='flex items-center flex-col bg-black-900 shadow rounded-lg'>
                         <div key={item.name} className='h-64 w-64'>
                             <img src={item.images[0]} className='' alt="" />
                         </div>

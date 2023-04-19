@@ -10,7 +10,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEY, {
 });
 
 export const handler = async (req, res) => {
-  alert(req.body)
+  console.log(req.body)
 
   
 
