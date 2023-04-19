@@ -8,7 +8,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEY, {
     url: "https://github.com/stripe-samples/checkout-one-time-payments"
   }
 });
-
+//
 export const handler = async (req, res) => {
   console.log(req.body)
 
