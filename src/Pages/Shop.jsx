@@ -63,7 +63,7 @@ function Shop() {
                 return (
                     <div className='flex items-center flex-col'>
                         <div key={item.name} className='h-64 w-64'>
-                            <img src={images[0]} className='' alt="" />
+                            <img src={item.images[0]} className='' alt="" />
                         </div>
                         <div className=''>
                             <p className='text-center text-6xl font-bold'>{item.name}</p>
