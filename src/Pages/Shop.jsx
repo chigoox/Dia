@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import LIGHT from '../assets/Lighter.jpeg'
 
 function Shop() {
+
+    const [PRODUCTDATA, SETPRODUCTDATA] = useState()
+
+
+    console.log(PRODUCTDATA)
     const product = [
         {
             name: 'light',
@@ -9,6 +14,51 @@ function Shop() {
             OGPrice: 34.95
         }
     ]
+
+    async function fetchProuductsFromStripe() {
+        fetch('/.netlify/functions/FetchProducts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+        }).then(res => {
+            res.json().then(res => {
+                const { products } = res
+                SETPRODUCTDATA(products)
+            })
+        })
+    }
+
+
+    const checkOut = async () => {
+        const STRIPE_CART = Object.values(clientCart).map((item) => {
+            return { quantity: item.count, price: item.priceID }
+        })
+
+
+        fetch('/.netlify/functions/CheckOut', {
+            method: 'POST',
+            redirect: 'follow',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                cart: STRIPE_CART
+            })
+        }).then(res => {
+            res.json().then(res => {
+
+                window.location.href = res.url
+
+            })
+        })
+    }
+
+    useEffect(() => {
+        const fetch = async () => { await fetchProuductsFromStripe() }
+        fetch().then(
+
+        )
+    }, [])
+
+
+
     return (
         <div className=' h-screen gap-40 md:grid-cols-2 grid-cols-1 lg:grid-cols-4 p-12 mt-12 grid grid-flow-row'>
             {product.map((item) => {
