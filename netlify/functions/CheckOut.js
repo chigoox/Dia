@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEYX, {
+const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEY, {
   apiVersion: '2020-08-27',
   appInfo: { // For sample support and debugging, not required for production:
     name: "stripe-samples/checkout-one-time-payments",

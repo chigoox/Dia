@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEYX/* 'sk_test_51MamPiLPNdUzkCF3xdRvn0nkLpOrsJFo1um4Z7e07FlQXH6T7HCHhRxYkVjkK2iPW61EMZKoDM0ml6YSdWmAPcEn00E3jb1Gcr' */, {
+const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEY/* 'sk_test_51MamPiLPNdUzkCF3xdRvn0nkLpOrsJFo1um4Z7e07FlQXH6T7HCHhRxYkVjkK2iPW61EMZKoDM0ml6YSdWmAPcEn00E3jb1Gcr' */, {
   apiVersion: '2020-08-27',
   appInfo: { // For sample support and debugging, not required for production:
     name: "stripe-samples/checkout-one-time-payments",
@@ -8,7 +8,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEYX/* 'sk_test_5
     url: "https://github.com/stripe-samples/checkout-one-time-payments"
   }
 });
-console.log(process.env.STRIPE_SECRET_API_KEYX)
 export const handler = async () => {
   const products = await stripe.products.list()
   return {
