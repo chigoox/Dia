@@ -11,7 +11,8 @@ function Shop() {
         {
             name: 'light',
             price: 19.95,
-            OGPrice: 34.95
+            OGPrice: 34.95,
+            priceID: 1232,
         }
     ]
 
@@ -72,7 +73,7 @@ function Shop() {
                             </div>
                         </div>
                         <div className='center mt-4'>
-                            <button onClick={checkOut} className='h-20 w-64 rounded-lg bg-blue-600 hover:bg-blue-400 trans-slow text-3xl font-bold'>Buy</button>
+                            <button onClick={() => { checkOut(item.priceID) }} className='h-20 w-64 rounded-lg bg-blue-600 hover:bg-blue-400 trans-slow text-3xl font-bold'>Buy</button>
                         </div>
                     </div>
                 )
