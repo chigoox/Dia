@@ -28,11 +28,8 @@ function Shop() {
     }
 
 
-    const checkOut = async () => {
-        const STRIPE_CART = Object.values(clientCart).map((item) => {
-            return { quantity: item.count, price: item.priceID }
-        })
-
+    const checkOut = async (price) => {
+        const STRIPE_CART = { quantity: 1, price: price }
 
         fetch('/.netlify/functions/CheckOut', {
             method: 'POST',
