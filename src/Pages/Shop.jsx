@@ -54,7 +54,7 @@ function Shop() {
             {PRODUCTDATA && PRODUCTDATA.map((item) => {
                 console.log(item)
                 return (
-                    <div className='flex items-center flex-col bg-black-900 shadow rounded-lg'>
+                    <div className='flex items-center justify-center flex-col bg-black-900 shadow rounded-lg'>
                         <div key={item.name} className='h-64 w-64'>
                             <img src={item.images[0]} className='' alt="" />
                         </div>
