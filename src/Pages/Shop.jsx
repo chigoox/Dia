@@ -31,6 +31,7 @@ function Shop() {
 
     const checkOut = async (price) => {
         const STRIPE_CART = { quantity: 1, price: price }
+        console.log(STRIPE_CART)
 
         fetch('/.netlify/functions/CheckOut', {
             method: 'POST',
