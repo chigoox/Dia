@@ -7,14 +7,7 @@ function Shop() {
 
 
     console.log(PRODUCTDATA)
-    const product = [
-        {
-            name: 'light',
-            price: 19.95,
-            OGPrice: 34.95,
-            priceID: 1232,
-        }
-    ]
+
 
     async function fetchProuductsFromStripe() {
         fetch('/.netlify/functions/FetchProducts', {
@@ -31,7 +24,6 @@ function Shop() {
 
     const checkOut = async (price) => {
         const STRIPE_CART = { quantity: 1, price: price }
-        console.log(STRIPE_CART)
 
         fetch('/.netlify/functions/CheckOut', {
             method: 'POST',

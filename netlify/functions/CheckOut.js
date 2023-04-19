@@ -16,9 +16,8 @@ export const handler = async (req, res) => {
 
   const request = JSON.parse(req.body)
   const {cart} = request
-console.log(cart)
   const session = await stripe.checkout.sessions.create({
-    line_items: cart,
+    line_items: [cart],
     mode: 'payment',
     success_url: `https://lighttricity.netlify.app/?success=true`,
     cancel_url: `https://lighttricity.netlify.app/?canceled=true`,
